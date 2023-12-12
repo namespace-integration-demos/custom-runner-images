@@ -4,15 +4,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  custom-image:
+  apt-install:
     runs-on: namespace-profile-default
     steps:
       - name: Install postgresql-client
-        run: sudo apt-get install postgresql-client
+        run: sudo apt-get install -y postgresql-client
       - name: Use psql
         run: psql --version
 
-  apt-install:
+  custom-image:
     runs-on: namespace-profile-custom-image-postgresql
     steps:
       - name: Use psql
